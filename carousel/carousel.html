@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="css/carousel.css"/>
+    <script>
+        (function () {
+            changeRem();
+            function changeRem() {
+                document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 720 * 100 + 'px';
+            }
+
+            window.addEventListener('pageshow', function () {
+                changeRem();
+            });
+
+            window.addEventListener('resize', function () {
+                changeRem();
+            });
+        })();
+    </script>
+</head>
+<body>
+<div class="carousel-box">
+    <ul class="carousel-ul fn-clear">
+        <li><img src="images/4.jpg" alt=""/></li>
+        <li><img src="images/1.jpg" alt=""/></li>
+        <li><img src="images/2.jpg" alt=""/></li>
+        <li><img src="images/3.jpg" alt=""/></li>
+        <li><img src="images/4.jpg" alt=""/></li>
+        <li><img src="images/1.jpg" alt=""/></li>
+    </ul>
+    <ol class="carousel-ol fn-clear">
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+</div>
+
+</body>
+</html>
+<script src="./libs/zepto.js"></script>
+<script src="./libs/event.js"></script>
+<script src="./carousel.js"></script>
+<script>
+    $('.carousel-box').carousel('.carousel-ul', '.carousel-ol', 1000);
+    //    $.fn.carousel('.carousel-ul', '.carousel-ol', 1000);
+</script>

@@ -1,0 +1,22 @@
+html,body,div,ul,ol,li,p,img{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ol,ul{
+    list-style: none;
+}
+
+.fn-clear:before, .fn-clear:after{
+    display: block;
+    content: "";
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.fn-clear{
+    zoom:1;
+}

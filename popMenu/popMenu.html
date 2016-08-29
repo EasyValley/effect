@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <script>
+        (function () {
+            changeRem();
+            function changeRem() {
+                document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 6.4 + 'px';
+            }
+
+            window.addEventListener('resize', function () {
+                changeRem();
+            });
+
+            window.addEventListener('pageshow', function () {
+                changeRem();
+            });
+
+        })();
+    </script>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/mask.css"/>
+</head>
+<body>
+其他内容
+
+<div id="btn">click here to show mask</div>
+<div class="mask-container fn-hide">
+    <div class="chat">chat</div>
+    <div class="contact">contact</div>
+    <div class="call">call</div>
+</div>
+</body>
+</html>
+<script src="./libs/zepto.js"></script>
+<script src="./libs/event.js"></script>
+<script src="./popMenu.js"></script>

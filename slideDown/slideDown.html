@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <script>
+        (function () {
+            changeRem();
+            function changeRem() {
+                document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 6.4 + 'px';
+            }
+
+            window.addEventListener('resize', function () {
+                changeRem();
+            });
+
+            window.addEventListener('pageshow', function () {
+                changeRem();
+            });
+
+        })();
+    </script>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="css/slideDown.css"/>
+</head>
+<body>
+<div class="slideDown fn-clear">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+</div>
+<div class="c">
+    <img src="./Penguins.jpg" alt=""/>
+</div>
+<div class="c2">点击隐藏</div>
+<div class="c3">点击显示</div>
+</body>
+</html>
+<script src="./libs/zepto.js"></script>
+<script src="./libs/event.js"></script>
+<script src="./slideDown.js"></script>

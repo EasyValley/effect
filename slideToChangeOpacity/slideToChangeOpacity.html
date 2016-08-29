@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <script>
+        (function () {
+            changeRem();
+            function changeRem() {
+                document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 6.4 + 'px';
+            }
+
+            window.addEventListener('pageshow', function () {
+                changeRem();
+            });
+
+            window.addEventListener('resize', function () {
+                changeRem();
+            });
+        })();
+    </script>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/index.css"/>
+</head>
+<body>
+<div id="dv">
+    <div id="cancel">点击这里取消</div>
+</div>
+这里很多文字
+</body>
+</html>
+
+<script>
+    var i = 1;
+    var opacity = 0;
+    var startY = 0;
+    var moveY = 0;
+    var flag = true;
+    var dv = document.getElementById('dv');
+    var cancel = document.getElementById('cancel');
+    document.addEventListener('touchstart', function (e) {
+        dv.className = '';
+        startY = e.touches[0].clientY;
+    });
+    document.addEventListener('touchmove', function (e) {
+        e.preventDefault();
+        moveY = e.touches[0].clientY - startY;
+        if (moveY > 0 && flag) {
+            if (moveY > 100) {
+                flag = false;
+            }
+            moveY = moveY > 100 ? 100 : moveY;
+            opacity = 1 - moveY / 150;
+            dv.style.background = 'rgba(0, 0, 0, ' + opacity + ')';
+        }
+    });
+    document.addEventListener('touchend', function (e) {
+        if (flag && moveY < 100 && moveY > 0) {
+            dv.className = 'back';
+            dv.style.background = 'rgba(0, 0, 0, ' + 0.9 + ')';
+        }
+    });
+
+    cancel.addEventListener('touchstart', function () {
+        flag = true;
+        dv.style.background = 'rgba(0, 0, 0, ' + 0.9 + ')';
+    });
+</script>
